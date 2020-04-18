@@ -73,4 +73,25 @@ class TodoController extends Controller
             return new TodoResource($todo);
         }  
     }
+
+    // toggle completed status
+    public function toggle($id)
+    {
+        // Get todo
+        $todo = Todo::findOrFail($id);
+
+    
+        
+        if ($todo->completed == 0) {
+            $todo->completed = 1;
+        }
+
+        else if ($todo->completed == 1) {
+            $todo->completed = 0;
+        }
+        
+        if($todo->save()) {
+            return new TodoResource($todo);
+        }
+    }
 }

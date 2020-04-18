@@ -32,3 +32,6 @@ Route::put('todo/', 'TodoController@store');
 
 // Delete Todo
 Route::delete('todo/{id}', 'TodoController@destroy');
+
+// Toggle Completed Status
+Route::put('todo/toggle/{id}', 'TodoController@toggle');
